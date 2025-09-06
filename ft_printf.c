@@ -6,19 +6,19 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:28:56 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/04 19:49:49 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/06 18:40:04 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	function_1(const char *format, va_list str)
+static int	ft_conversions(const char *format, va_list str)
 {
 	int	length_func;
 	
 	length_func = 0;
 	if (str == 'c')
-		//length_func += function(putchar);
+		length_func += ft_character(const char *format);
 	else if (str == 's')
 		//length_func += function(putstr);
 	else if (str == 'p')
@@ -45,7 +45,7 @@ int	printf(const char *format, ...)
 	{
 		if (str[i] == '%')
 		{
-			//length += function_1 (format, str[i + 1]);
+			length += ft_conversions(format, str[i + 1]);
 			i++;
 		}
 		else
