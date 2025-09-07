@@ -6,52 +6,59 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:28:56 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/06 18:40:04 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/07 10:20:57 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_conversions(const char *format, va_list str)
+static int	ft_specifiers(const char *str, va_list str)
 {
-	int	length_func;
+	int	len;
 	
-	length_func = 0;
+	len = 0;
 	if (str == 'c')
-		length_func += ft_character(const char *format);
+		len += ft_print_char(str);
 	else if (str == 's')
-		//length_func += function(putstr);
+		len += ft_print_str(str);
 	else if (str == 'p')
-		//length_func += function(pointer);
+		//len += function(pointer);
 	else if (str == 'i' || str == 'd')
-		//length_func += function(base 10 number/ itoa->putstr);
+		//len += function(base 10 number/ itoa->putstr);
 	else if (str == 'u')
-		//length_func += function(unsigned/ utoa->putstr);
+		//len += function(unsigned/ utoa->putstr);
 	else if (str == 'X' || str == 'x')
-		//length_func += function (base 16 number);
+		//len += function (base 16 number);
 	else if (str == '%')
-		//length_func += function;
-	return (length_func);
+		//len += function;
+	else
+		return (0);
+	return (len);
 }
 
-int	printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	arg;
-	int	length;
+	int	len;
 	int	i;
-	
+	char *str;
+
+	str = ft_strdup(format);
+	if (!str)
+		return (0);
 	va_start(arg, str);
+	i = 0;
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			length += ft_conversions(format, str[i + 1]);
+			len += ft_specifiers(format, str[i + 1]);
 			i++;
 		}
 		else
-			//length += function_2 (str[i]); ----> write function?? (putchar)
+			len += write(1, &str[i], 1);
 		i++;
 	}
 	va_end(arg);
-	return (length);
+	return (len);
 }
