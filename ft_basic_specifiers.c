@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:39:04 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 15:17:27 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/09 16:58:38 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int	ft_print_str(char *s)
 	int	i;
 
 	if (!s)
+	{
+		write(1, "(null)", 6);
 		return ;
+	}
 	i = 0;
 	while (s[i])
 	{

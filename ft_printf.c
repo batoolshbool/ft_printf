@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:28:56 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 14:59:52 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/09 17:25:05 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static int	ft_specifiers(char *spec, va_list arg)
 		len += ft_print_digit(va_arg(arg, int)); // itoa->putspec -> base 10;
 	else if (spec == 'u') //NOT DONE
 		len += ft_print_unit(va_arg(arg, unsigned int)); // (unsigned/ utoa->putspec);
-	else if (spec == 'X' || spec == 'x') //NOT DONE
-		len += ft_print_hex(va_arg(arg, unsigned int)); // (base 16 number);
+	else if (spec == 'X' || spec == 'x')
+		len += ft_print_hex(va_arg(arg, unsigned int), spec);
 	else if (spec == '%')
 		len += ft_print_char(va_arg(arg, char));
 	else
