@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:21:35 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 16:32:44 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/09 16:48:31 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,29 @@
 
 int	ft_print_hex(unsigned int num)
 {
-	char *hello = "0123456789abcdef";
+	int	i;
+	char *str;
+	int	count;
+
 	if (num == 0)
 	{
 		write (1, "0", 1);
-		//return (1);
+		return (1);
 	}
-	int i = 0;
-	char *str = NULL;
+	i = 0;
+	str = malloc(sizeof (char));
 	 while(num)
 	 {
-		printf("meow\n");
-		str[i] = hello[num % 16];
+		str[i] = HEX[num % 16];
 		num /= 16;
 		i++;
 	}
+	count = 0;
 	while (i > 0)
 	{
-		write(1, &str[i], 1);
-		i--;
+		write(1, &str[--i], 1);
+		count ++;
 	}
-	return (1);
+	return (count);
 	
 }
-#include <stdio.h>
-int main()
-{
-	ft_print_hex(500);
-}
-
-// int	ft_print_ptr(void *ptr)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (ptr == 0)
-// 	{
-// 		write(1, "(nil)", 5);
-// 	}
-// }
