@@ -1,25 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_basic_specifiers.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 16:23:45 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 16:18:55 by bshbool          ###   ########.fr       */
+/*   Created: 2025/09/06 18:39:04 by bshbool           #+#    #+#             */
+/*   Updated: 2025/09/09 15:17:27 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
+int	ft_print_char(int c)
+{
+	write(1, &c, 1);
+	return (1);
+}
 
-# define HEX "0123456789abcdef"
+int	ft_print_str(char *s)
+{
+	int	i;
 
-int	ft_printf(const char *format, ...);
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (1);
+}
 
-#endif
+int	ft_print_char(int a)
+{
+	if (a == '%')
+	{
+		write(1, "%", 1);
+		return (1);
+	}
+	return (0);
+}

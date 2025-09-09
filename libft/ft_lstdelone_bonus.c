@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 16:23:45 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 16:18:55 by bshbool          ###   ########.fr       */
+/*   Created: 2025/08/21 17:06:55 by bshbool           #+#    #+#             */
+/*   Updated: 2025/09/02 12:42:11 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-
-# define HEX "0123456789abcdef"
-
-int	ft_printf(const char *format, ...);
-
-#endif
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
+}
+//int main()
+//{
+//	t_list *list = NULL;
+//	list = ft_lstnew(ft_strdup("hellooo"));
+//	ft_lstdelone(list, free);
+//	list = NULL;
+//	printf("node deleted\n");
+//}

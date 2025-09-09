@@ -6,31 +6,31 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:28:56 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/07 10:20:57 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/09 14:59:52 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_specifiers(const char *str, va_list str)
+static int	ft_specifiers(char *spec, va_list arg)
 {
 	int	len;
-	
+
 	len = 0;
-	if (str == 'c')
-		len += ft_print_char(str);
-	else if (str == 's')
-		len += ft_print_str(str);
-	else if (str == 'p')
-		//len += function(pointer);
-	else if (str == 'i' || str == 'd')
-		//len += function(base 10 number/ itoa->putstr);
-	else if (str == 'u')
-		//len += function(unsigned/ utoa->putstr);
-	else if (str == 'X' || str == 'x')
-		//len += function (base 16 number);
-	else if (str == '%')
-		//len += function;
+	if (spec == 'c')
+		len += ft_print_char(va_arg(arg, int));
+	else if (spec == 's')
+		len += ft_print_str(va_arg(arg, char));
+	else if (spec == 'p') //NOT DONE
+		len += ft_print_ptr(va_arg(arg, void *));
+	else if (spec == 'i' || spec == 'd') //NOT DONE
+		len += ft_print_digit(va_arg(arg, int)); // itoa->putspec -> base 10;
+	else if (spec == 'u') //NOT DONE
+		len += ft_print_unit(va_arg(arg, unsigned int)); // (unsigned/ utoa->putspec);
+	else if (spec == 'X' || spec == 'x') //NOT DONE
+		len += ft_print_hex(va_arg(arg, unsigned int)); // (base 16 number);
+	else if (spec == '%')
+		len += ft_print_char(va_arg(arg, char));
 	else
 		return (0);
 	return (len);
@@ -39,24 +39,21 @@ static int	ft_specifiers(const char *str, va_list str)
 int	ft_printf(const char *format, ...)
 {
 	va_list	arg;
-	int	len;
-	int	i;
-	char *str;
+	int		len;
+	int		i;
 
-	str = ft_strdup(format);
-	if (!str)
-		return (0);
-	va_start(arg, str);
+	len = 0;
+	va_start(arg, format);
 	i = 0;
-	while (str[i])
+	while (format[i])
 	{
-		if (str[i] == '%')
+		if (format[i] == '%')
 		{
-			len += ft_specifiers(format, str[i + 1]);
+			len += ft_specifiers(format[i + 1], arg);
 			i++;
 		}
 		else
-			len += write(1, &str[i], 1);
+			len += write(1, &format[i], 1);
 		i++;
 	}
 	va_end(arg);

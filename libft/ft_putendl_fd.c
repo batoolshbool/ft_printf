@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 16:23:45 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 16:18:55 by bshbool          ###   ########.fr       */
+/*   Created: 2025/08/10 17:59:08 by bshbool           #+#    #+#             */
+/*   Updated: 2025/08/30 13:04:44 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
+void	ft_putendl_fd(char *s, int fd)
+{
+	int	i;
 
-# define HEX "0123456789abcdef"
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, "\n", 1);
+}
 
-int	ft_printf(const char *format, ...);
-
-#endif
+// int main(void)
+// {
+// 	char *c = "lorem ipsum dolor sit amet";
+// 	ft_putendl_fd(c, 2);
+// 	return (0);
+// }

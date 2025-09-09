@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 16:23:45 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 16:18:55 by bshbool          ###   ########.fr       */
+/*   Created: 2025/08/20 16:41:37 by bshbool           #+#    #+#             */
+/*   Updated: 2025/09/02 12:42:18 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
 
-# define HEX "0123456789abcdef"
-
-int	ft_printf(const char *format, ...);
-
-#endif
+/*#include <stdio.h>
+int	main(void)
+{
+	t_list *n1 = ft_lstnew("a");
+	t_list *n2 = ft_lstnew("b");
+	t_list *n3 = ft_lstnew("c");
+	
+	n1->next = n2;
+	n2->next = n3;
+	
+	t_list *last = ft_lstlast(n1);
+	printf("%s\n", (char *)last->content);
+}*/

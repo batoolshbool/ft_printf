@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 16:23:45 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 16:18:55 by bshbool          ###   ########.fr       */
+/*   Created: 2025/08/18 13:20:28 by bshbool           #+#    #+#             */
+/*   Updated: 2025/09/02 12:43:04 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*list;
 
-# define HEX "0123456789abcdef"
+	list = malloc(sizeof(t_list));
+	if (!list)
+		return (NULL);
+	list->content = content;
+	list->next = NULL;
+	return (list);
+}
 
-int	ft_printf(const char *format, ...);
-
-#endif
+/*#include <stdio.h>
+int main (void)
+{
+	char *str = "Hello, World";
+	t_list *node = ft_lstnew((void *)str);
+	printf ("%s\n", (char *)node->content);	
+}*/

@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 16:23:45 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 16:18:55 by bshbool          ###   ########.fr       */
+/*   Created: 2025/08/12 20:43:01 by bshbool           #+#    #+#             */
+/*   Updated: 2025/08/30 13:07:18 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	unsigned int	i;
 
-# define HEX "0123456789abcdef"
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
+	s[i] = '\0';
+}
+/*void func(unsigned int i, char *c)
+{
+	(void)i;
+	*c = ft_toupper(*c);
+}
 
-int	ft_printf(const char *format, ...);
+#include <stdio.h>
 
-#endif
+int	main(void)
+{
+	char s[] = "hello";
+	printf("original : %s\n", s);
+
+	ft_striteri(s, func);
+	printf("after : %s\n", s);
+}*/
