@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:28:56 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 17:25:05 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/09 17:46:36 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ static int	ft_specifiers(char *spec, va_list arg)
 	else if (spec == 'X' || spec == 'x')
 		len += ft_print_hex(va_arg(arg, unsigned int), spec);
 	else if (spec == '%')
-		len += ft_print_char(va_arg(arg, char));
+	{
+		write(1, "%", 1);
+		len += 1;
+	}
 	else
 		return (0);
 	return (len);

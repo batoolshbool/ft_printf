@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:21:35 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 17:24:52 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/09 17:46:24 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,4 @@ int	ft_puthex(unsigned int num, char *hex_value)
 	}
 	return (count);
 	
-}
-int	ft_print_hex(unsigned int num, char spec)
-{
-	int	i;
-
-	i = 0;
-	if (spec == 'x')
-		i += ft_puthex(num, HEX_LOWER);
-	else
-		i += ft_puthex(num, HEX_UPPER);
-	return(i);
 }
