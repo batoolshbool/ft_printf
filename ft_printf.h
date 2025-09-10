@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:23:45 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/10 14:22:04 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/10 14:37:15 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,5 @@ int	ft_print_str(char *s);
 int	ft_print_ptr(void *p);
 int	ft_print_digit(int num);
 int	ft_print_unit(unsigned int num);
-
-
 
 #endif

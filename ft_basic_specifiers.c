@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:39:04 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/10 14:23:15 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/10 14:38:26 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_print_ptr(void *p)
 		return (5);
 	}
 	i = 2;
-		write(1, "0x", 2);
-		i += ft_puthex((unsigned long)p, HEX_LOWER);
+	write(1, "0x", 2);
+	i += ft_puthex((unsigned long)p, HEX_LOWER);
 	return (i);
 }

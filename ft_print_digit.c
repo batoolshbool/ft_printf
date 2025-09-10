@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 08:32:13 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/10 14:28:35 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/10 14:39:28 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,12 @@ int	ft_print_digit(int num)
 int	ft_print_unit(unsigned int num)
 {
 	int	i;
+	int	a;
+
 	i = ft_digit(num);
 	if (num >= 10)
 		ft_print_unit(num / 10);
-	int a = (num % 10) + '0';
+	a = (num % 10) + '0';
 	write(1, &a, 1);
 	return (i);
 }

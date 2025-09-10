@@ -76,3 +76,40 @@ int main(void)
 
     return 0;
 }
+
+/*printf:    Char: A
+ft_printf: Char: A
+Lengths -> printf: 19 | ft_printf: 19
+
+printf:    String: Hello, world!
+ft_printf: String: Hello, world!
+Lengths -> printf: 33 | ft_printf: 33
+
+printf:    Pointer: 0x1234abcd
+ft_printf: Pointer: 0x1234abcd
+Lengths -> printf: 31 | ft_printf: 31
+
+printf:    Signed int: -12345
+ft_printf: Signed int: -12345
+Lengths -> printf: 30 | ft_printf: 30
+
+printf:    Integer (%i): 54321
+ft_printf: Integer (%i): 54321
+Lengths -> printf: 31 | ft_printf: 31
+
+printf:    Unsigned: 4294967295
+ft_printf: Unsigned: 4294967295
+Lengths -> printf: 32 | ft_printf: 24
+
+printf:    Hex (lower): 1234abcd
+ft_printf: Hex (lower): 
+Lengths -> printf: 33 | ft_printf: 25
+
+printf:    Hex (upper): 1234ABCD
+ft_printf: Hex (upper): 
+Lengths -> printf: 33 | ft_printf: 25
+
+printf:    Percent: %
+ft_printf: Percent: %
+Lengths -> printf: 22 | ft_printf: 22
+*/
