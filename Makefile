@@ -1,9 +1,10 @@
 NAME =  libftprintf.a
-CC = CC
+CC = cc
 AR = ar rcs
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_printf.c ft_basic_specifiers.c ft_print_hex.c \
+	ft_print_digit.c
 	
 
 OBJS = $(SRCS:.c=.o)
@@ -13,6 +14,9 @@ OBJS = $(SRCS:.c=.o)
 
 
 all: $(NAME)
+ 
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)

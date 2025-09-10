@@ -6,13 +6,13 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:28:56 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/10 08:29:32 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/10 14:16:59 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 //MAIN IS NOT DELETEDD!!!!
-static int	ft_specifiers(char *spec, va_list arg)
+static int	ft_specifiers(char spec, va_list arg)
 {
 	int	len;
 
@@ -20,13 +20,13 @@ static int	ft_specifiers(char *spec, va_list arg)
 	if (spec == 'c')
 		len += ft_print_char(va_arg(arg, int));
 	else if (spec == 's')
-		len += ft_print_str(va_arg(arg, char));
+		len += ft_print_str(va_arg(arg, char *));
 	else if (spec == 'p')
 		len += ft_print_ptr(va_arg(arg, void *));
-	else if (spec == 'i' || spec == 'd') //NOT DONE
-		len += ft_print_digit(va_arg(arg, int)); // itoa->putspec -> base 10;
-	else if (spec == 'u') //NOT DONE
-		len += ft_print_unit(va_arg(arg, unsigned int)); // (unsigned/ utoa->putspec);
+	else if (spec == 'i' || spec == 'd')
+		len += ft_print_digit(va_arg(arg, int));
+	else if (spec == 'u')
+		len += ft_print_unit(va_arg(arg, unsigned int));
 	else if (spec == 'X' || spec == 'x')
 		len += ft_print_hex(va_arg(arg, unsigned int), spec);
 	else if (spec == '%')
