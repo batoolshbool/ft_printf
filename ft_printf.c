@@ -6,12 +6,12 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:28:56 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 17:46:36 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/10 08:26:19 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+//MAIN IS NOT DELETEDD!!!!
 static int	ft_specifiers(char *spec, va_list arg)
 {
 	int	len;
@@ -21,7 +21,7 @@ static int	ft_specifiers(char *spec, va_list arg)
 		len += ft_print_char(va_arg(arg, int));
 	else if (spec == 's')
 		len += ft_print_str(va_arg(arg, char));
-	else if (spec == 'p') //NOT DONE
+	else if (spec == 'p')
 		len += ft_print_ptr(va_arg(arg, void *));
 	else if (spec == 'i' || spec == 'd') //NOT DONE
 		len += ft_print_digit(va_arg(arg, int)); // itoa->putspec -> base 10;

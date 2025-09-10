@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:39:04 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 16:58:38 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/10 08:27:29 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_print_str(char *s)
 	if (!s)
 	{
 		write(1, "(null)", 6);
-		return ;
+		return (0);
 	}
 	i = 0;
 	while (s[i])
@@ -36,12 +36,22 @@ int	ft_print_str(char *s)
 	return (1);
 }
 
-int	ft_print_char(int a)
+int	ft_print_ptr(void *p)
 {
-	if (a == '%')
+	int	i;
+
+	if (p == 0)
 	{
-		write(1, "%", 1);
-		return (1);
+		write(1, "0x0", 3);
+		return (3);
 	}
-	return (0);
+	i = 0;
+		write(1, "0x", 2);
+		i += ft_puthex((unsigned long)p, HEX_LOWER);
+	return (i);
+}
+
+int	ft_print_unit(unsigned int u)
+{
+	//function
 }

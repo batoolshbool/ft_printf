@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:23:45 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/09 17:04:33 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/10 08:28:25 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,12 @@
 # define HEX_UPPER "0123456789ABCDEF"
 
 int	ft_printf(const char *format, ...);
+int	ft_print_hex(char spec, unsigned int num);
+int	ft_puthex(unsigned long num, char *hex_value);
+int	ft_print_char(int c);
+int	ft_print_str(char *s);
+int	ft_print_ptr(void *p);
+
+
 
 #endif
