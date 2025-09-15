@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 08:32:13 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/15 13:32:55 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/15 15:52:17 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,3 @@ int	ft_print_unit(unsigned int num)
 	write(1, &a, 1);
 	return (i);
 }
-// #include <stdio.h>
-// #include <limits.h>
-
-// int main ()
-// {
-// 	int i = printf("%d", INT_MAX);
-// 	printf("\n");
-// 	int j = ft_print_digit(INT_MAX);
-// 	printf("\n\n %d\n %d", i, j);
-// }
