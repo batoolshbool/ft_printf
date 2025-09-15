@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 08:32:13 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/10 14:39:28 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/15 13:32:55 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_print_digit(int num)
 	if (num == -2147483648)
 	{
 		write(1, "-2147483648", 11);
-		return (10);
+		return (11);
 	}
 	i = ft_digit(num);
 	if (num < 0)
@@ -57,15 +57,38 @@ int	ft_print_digit(int num)
 	return (i);
 }
 
+static size_t	ft_udigit(unsigned int n)
+{
+	size_t	len;
+
+	len = 1;
+	while (n >= 10)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
 int	ft_print_unit(unsigned int num)
 {
 	int	i;
 	int	a;
 
-	i = ft_digit(num);
+	i = ft_udigit(num);
 	if (num >= 10)
 		ft_print_unit(num / 10);
 	a = (num % 10) + '0';
 	write(1, &a, 1);
 	return (i);
 }
+// #include <stdio.h>
+// #include <limits.h>
+
+// int main ()
+// {
+// 	int i = printf("%d", INT_MAX);
+// 	printf("\n");
+// 	int j = ft_print_digit(INT_MAX);
+// 	printf("\n\n %d\n %d", i, j);
+// }

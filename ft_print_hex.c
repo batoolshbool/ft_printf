@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:21:35 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/10 08:21:58 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/15 13:14:29 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	ft_print_hex(char spec, unsigned int num)
 		return (1);
 	}
 	else if (spec == 'x')
-		i += ft_puthex(num, HEX_LOWER);
+		return (i += ft_puthex((unsigned long)num, HEX_LOWER));
 	else if (spec == 'X')
-		i += ft_puthex(num, HEX_UPPER);
-	return (i);
+		return (i += ft_puthex((unsigned long)num, HEX_UPPER));
+	return (0);
 }

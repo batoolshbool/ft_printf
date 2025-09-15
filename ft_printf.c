@@ -6,12 +6,18 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:28:56 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/10 14:16:59 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/15 15:49:56 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-//MAIN IS NOT DELETEDD!!!!
+
+static int	ft_valid_specs(char c)
+{
+	return (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u'
+		|| c == 'x' || c == 'X' || c == '%');
+}
+
 static int	ft_specifiers(char spec, va_list arg)
 {
 	int	len;
@@ -28,7 +34,7 @@ static int	ft_specifiers(char spec, va_list arg)
 	else if (spec == 'u')
 		len += ft_print_unit(va_arg(arg, unsigned int));
 	else if (spec == 'X' || spec == 'x')
-		len += ft_print_hex(va_arg(arg, unsigned int), spec);
+		len += ft_print_hex(spec, va_arg(arg, unsigned int));
 	else if (spec == '%')
 	{
 		write(1, "%", 1);
@@ -36,6 +42,25 @@ static int	ft_specifiers(char spec, va_list arg)
 	}
 	else
 		return (0);
+	return (len);
+}
+
+static int	ft_print_specs(const char *format, va_list arg)
+{
+	int	len;
+	int	i;
+
+	i = 0;
+	len = 0;
+	if (format[i] && ft_valid_specs(format[i]))
+	{
+		len += ft_specifiers(format[i], arg);
+		i++;
+	}
+	else if (format[i])
+	{
+		return (-1);
+	}
 	return (len);
 }
 
@@ -48,16 +73,20 @@ int	ft_printf(const char *format, ...)
 	len = 0;
 	va_start(arg, format);
 	i = 0;
+	if (!format)
+		return (-1);
 	while (format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			len += ft_specifiers(format[i + 1], arg);
+			len += ft_print_specs(&format[i + 1], arg);
+			i += 2;
+		}
+		else if (format[i] != '%')
+		{
+			len += write(1, &format[i], 1);
 			i++;
 		}
-		else
-			len += write(1, &format[i], 1);
-		i++;
 	}
 	va_end(arg);
 	return (len);
