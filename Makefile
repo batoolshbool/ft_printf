@@ -3,14 +3,14 @@ CC = cc
 AR = ar rcs
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_printf.c ft_basic_specifiers.c ft_print_hex.c \
-	ft_print_digit.c
+SRCS = ft_printf.c ft_print_hex.c \
+	ft_print_digit.c ft_basic_specifiers.c
 	
 
 OBJS = $(SRCS:.c=.o)
 
-%.o: %.CC
-	$(CC)$(CFLAGS) -c $, -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 
 all: $(NAME)
@@ -25,3 +25,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:21:35 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/15 13:14:29 by bshbool          ###   ########.fr       */
+/*   Updated: 2025/09/19 08:52:57 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_puthex(unsigned long num, char *hex_value)
 	int		count;
 
 	i = 0;
-	str = malloc(sizeof (char) * 17);
+	str = malloc((sizeof(num) * 2) + 1);
 	if (!str)
 		return (0);
 	while (num)
@@ -39,17 +39,14 @@ int	ft_puthex(unsigned long num, char *hex_value)
 
 int	ft_print_hex(char spec, unsigned int num)
 {
-	int	i;
-
-	i = 0;
 	if (num == 0)
 	{
 		write (1, "0", 1);
 		return (1);
 	}
 	else if (spec == 'x')
-		return (i += ft_puthex((unsigned long)num, HEX_LOWER));
+		return (ft_puthex((unsigned long)num, HEX_LOWER));
 	else if (spec == 'X')
-		return (i += ft_puthex((unsigned long)num, HEX_UPPER));
+		return (ft_puthex((unsigned long)num, HEX_UPPER));
 	return (0);
 }
